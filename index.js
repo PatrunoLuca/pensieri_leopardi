@@ -33,7 +33,7 @@ app.use(
 );
 
 app.set("view-engine", require("ejs"));
-app.set("views", "views");
+app.set("views", [path.join(__dirname, "views"), path.join(__dirname, "ejs_imports")]);
 
 app.get("/", (req, res) => {
     res.render("home.ejs", {});
