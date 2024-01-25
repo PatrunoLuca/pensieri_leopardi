@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pensieri</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+
+  <!-- Import local libraries -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <script type="module">
+    import mermaid from '/mermaid/mermaid.esm.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@latest"></script>
+
+  <!-- Font Awesome -->
+  <script src="/scripts/fontawesome.js"></script>
+    
+
+  <!-- Custom Files-->
+  <link href="/styles/home.css" rel="stylesheet">
+  <link href="/styles/all.css" rel="stylesheet">
+  <script src="/scripts/all.js" defer></script>
+  <script src="/scripts/home.js" defer></script>
+
+</head>
+
+<body data-bs-theme="dark"">
+
+  <%- include("header"); %>
+
+  <!-- Page Content-->
+  <div class="container px-2 mx-auto my-2">
+
+    <section id="intro">
+      <div class="position-relative overflow-hidden text-center">
+        <img src="/assets/logo.png" width="300" height="300" class="d-inline-block align-top" alt="">
+      </div>
+
+      <div class="position-relative overflow-hidden p-3 text-center">
+        <h1 class="display-2 heading">Coding e Italiano</h1>
+        <p class="lead text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui. 
+          Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis, 
+          lorem metus feugiat turpis, id molestie arcu.
+        </p>
+      </div>
+    </section>
+
+    <section id="pensieri">
+
+      <div class="position-relative overflow-hidden p-3 text-center">
+        <h1 class="display-2 heading">Introduzione all'opera</h1>
+        <p class="lead text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
+          Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
+          lorem metus feugiat turpis, id molestie arcu.
+        </p>
+      </div>
+      
+      <pre class="mermaid text-center">
+        mindmap
+        root((Leopardi))
+          Tempo
+            Gioventú
+            Vecchiaia
+            Esperienza
+            Anniversari
+          Dualismi
+            Essere e Apparire
+            Dire e Fare
+            Immaginazione e Realtà
+            Uomo e Natura
+            Uomo e Donna
+          Miserie Umane
+            Presunzione
+            Malvagità
+            Superbia
+            Prepotenza 
+            Viltà
+            Disprezzo
+            Ipocrisia
+            Intolleranza
+            Credulità
+          Virtú
+            Onesta
+            Bontà
+            Sincerità
+            Modestia
+          Sentimenti
+            Allegria
+            Malinconia
+            Noia
+          Miserie Umane
+            Popolarità
+            Ingiurie
+            Parlare Troppo
+            Inganno
+            Denaro
+            Segreti
+            Epidemie
+            Destino
+            Specchio
+          Conoscenza
+            Letteratura
+            Guicciardini
+            Educazione
+            Illusioni
+      </pre>
+      
+      <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script>
+
+      <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">
+        <%- include("mindmap.md") %>
+      </div>
+
+
+    </section>
+  </div>
+
+  <%- include("footer"); %>
+</body>
