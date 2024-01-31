@@ -12,8 +12,67 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <script src="/bootstrap/js/bootstrap.min.js"></script>
   <script type="module">
+    var links = {
+      "Tempo": "/macrocategoria/tempo",
+      "Gioventú": "/categoria/giovent%C3%BA",
+      "Vecchiaia": "/categoria/vecchiaia",
+      "Esperienza": "/categoria/esperienza",
+      "Anniversari": "/categoria/anniversari",
+      "Dualismi": "/macrocategoria/dualismi",
+      "Essere e Apparire": "/categoria/essere%20e%20apparire",
+      "Dire e Fare": "/categoria/dire%20e%20fare",
+      "Immaginazione e Realtà": "/categoria/immaginazione%20e%20realt%C3%A0",
+      "Uomo e Natura": "/categoria/uomo%20e%20natura",
+      "Uomo e Donna": "/categoria/uomo%20e%20donna",
+      "Miserie Umane": "/macrocategoria/miserie%20umane",
+      "Presunzione": "/categoria/presunzione",
+      "Malvagità": "/categoria/malvagit%C3%A0",
+      "Superbia": "/categoria/superbia",
+      "Prepotenza": "/categoria/prepotenza",
+      "Viltà": "/categoria/vilt%C3%A0",
+      "Disprezzo": "/categoria/disprezzo",
+      "Ipocrisia": "/categoria/ipocrisia",
+      "Intolleranza": "/categoria/intolleranza",
+      "Credulità": "/categoria/credulit%C3%A0",
+      "Virtú": "/macrocategoria/virt%C3%BA",
+      "Onesta": "/categoria/onesta",
+      "Bontà": "/categoria/bont%C3%A0",
+      "Sincerità": "/categoria/sincerit%C3%A0",
+      "Modestia": "/categoria/modestia",
+      "Sentimenti": "/macrocategoria/sentimenti",
+      "Allegria": "/categoria/allegria",
+      "Malinconia": "/categoria/malinconia",
+      "Noia": "/categoria/noia",
+      "Popolarità": "/categoria/popolarit%C3%A0",
+      "Ingiurie": "/categoria/ingiurie",
+      "Parlare Troppo": "/categoria/parlare%20troppo",
+      "Inganno": "/categoria/inganno",
+      "Denaro": "/categoria/denaro",
+      "Segreti": "/categoria/segreti",
+      "Epidemie": "/categoria/epidemie",
+      "Destino": "/categoria/destino",
+      "Specchio": "/categoria/specchio",
+      "Conoscenza": "/macrocategoria/conoscenza",
+      "Letteratura": "/categoria/letteratura",
+      "Guicciardini": "/categoria/guicciardini",
+      "Educazione": "/categoria/educazione",
+      "Illusioni": "/categoria/illusioni"
+    }
+    
     import mermaid from '/mermaid/mermaid.esm.mjs';
-    mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({
+      startOnLoad: true, 
+      securityLevel: 'loose', 
+      er: { useMaxWidth: true },
+      mermaid: {callback: function(objId) {
+        var svg = document.getElementById(objId);
+        var nodeName;
+        for(nodeName in links) {
+          var gErd = svg.getElementById(nodeName);
+          gErd.href = links[this.id];
+        }
+      }}
+    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@latest"></script>
@@ -30,12 +89,12 @@
 
 </head>
 
-<body data-bs-theme="dark"">
+<body data-bs-theme="dark">
 
   <%- include("header"); %>
 
   <!-- Page Content-->
-  <div class="container px-2 mx-auto my-2">
+  <div class="main container mx-auto my-2">
 
     <section id="intro">
       <div class="position-relative overflow-hidden text-center">
@@ -64,60 +123,10 @@
       </div>
       
       <pre class="mermaid text-center">
-        mindmap
-        root((Leopardi))
-          Tempo
-            Gioventú
-            Vecchiaia
-            Esperienza
-            Anniversari
-          Dualismi
-            Essere e Apparire
-            Dire e Fare
-            Immaginazione e Realtà
-            Uomo e Natura
-            Uomo e Donna
-          Miserie Umane
-            Presunzione
-            Malvagità
-            Superbia
-            Prepotenza 
-            Viltà
-            Disprezzo
-            Ipocrisia
-            Intolleranza
-            Credulità
-          Virtú
-            Onesta
-            Bontà
-            Sincerità
-            Modestia
-          Sentimenti
-            Allegria
-            Malinconia
-            Noia
-          Miserie Umane
-            Popolarità
-            Ingiurie
-            Parlare Troppo
-            Inganno
-            Denaro
-            Segreti
-            Epidemie
-            Destino
-            Specchio
-          Conoscenza
-            Letteratura
-            Guicciardini
-            Educazione
-            Illusioni
+        <%- include("leopardi.mmd") %>
       </pre>
-      
-      <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script>
 
-      <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">
-        <%- include("mindmap.md") %>
-      </div>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script> <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">< %- include("mindmap.md") %></div> -->
 
 
     </section>

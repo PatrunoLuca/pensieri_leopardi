@@ -21,22 +21,33 @@
   <script src="/scripts/all.js" defer></script>
 </head>
 
-<body data-bs-theme="light"">
+<body data-bs-theme="dark">
 
   <%- include("header"); %>
 
   <!-- Page Content-->
-  <div class="container px-2 mx-auto my-2">
+  <div class="container main mx-auto my-2">
 
     <section id="pensiero">
-        <div class="position-relative overflow-hidden p-3 text-center">
-          <h1 class="display-2 heading">Pensiero <%= numero %></h1>
-          <p class="lead text-muted">
-            <%= pensiero %>
-          </p>
+      <div class="position-relative overflow-hidden p-3 text-center">
+        <h1 class="display-2 heading">Pensiero <%= numero %></h1>
+        <div class="row">
+          <div class="col-2 my-2">
+            <div class="list-group" id="list-tab" role="tablist">
+              <% categorie.forEach(function(categoria) { %>
+                <a class="list-group-item list-group-item-action" data-toggle="list" href="<%= categoria.link %>" role="tab" aria-controls="<%= categoria.nome %>"><%= categoria.nome %></a>
+              <% }); %> 
+            </div>
+          </div>
+          <div class="col-10">
+            <p class="lead text-muted">
+              <%= pensiero %>
+            </p>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </div>
 
   <%- include("footer"); %>
 </body>

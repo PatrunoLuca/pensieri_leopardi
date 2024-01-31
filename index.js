@@ -33,7 +33,10 @@ app.use(
 );
 
 app.set("view-engine", require("ejs"));
-app.set("views", [path.join(__dirname, "views"), path.join(__dirname, "ejs_imports")]);
+app.set("views", [
+    path.join(__dirname, "views"),
+    path.join(__dirname, "ejs_imports"),
+]);
 
 app.get("/", (req, res) => {
     res.render("home.ejs", {});
@@ -47,6 +50,24 @@ app.get("/pensiero/:id", (req, res) => {
     res.render("thought.ejs", {
         numero: pensieri[req.params.id]["numeral"],
         pensiero: pensieri[req.params.id]["text"],
+        categorie: [
+            {
+                nome: "Mortadella",
+                link: "/categoria/mortadella",
+            },
+            {
+                nome: "Prosciutto",
+                link: "/categoria/prosciutto",
+            },
+            {
+                nome: "Salame",
+                link: "/categoria/salame",
+            },
+            {
+                nome: "Tacchino",
+                link: "/categoria/tacchino",
+            },
+        ],
     });
 });
 
