@@ -15,5 +15,5 @@ for i in old_list:
         case 3:
             links[j] = f"/categoria/{urllib.quote(j.lower())}"
 
-with open("private/mermaid-links.json", "w", encoding="utf-8") as outfile:
+with open("public/mermaid-links.json", "w", encoding="utf-8") as outfile:
     json(links, outfile, indent=4, ensure_ascii=False)

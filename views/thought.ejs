@@ -17,7 +17,7 @@
     
 
   <!-- Custom Files-->
-  <link href="styles/all.css" rel="stylesheet">
+  <link href="/styles/all.css" rel="stylesheet">
   <script src="/scripts/all.js" defer></script>
 </head>
 
@@ -32,14 +32,14 @@
       <div class="position-relative overflow-hidden p-3 text-center">
         <h1 class="display-2 heading">Pensiero <%= numero %></h1>
         <div class="row">
-          <div class="col-2 my-2">
+          <div class="col-md-2 col-sm-6 my-2 mx-sm-auto">
             <div class="list-group" id="list-tab" role="tablist">
               <% categorie.forEach(function(categoria) { %>
                 <a class="list-group-item list-group-item-action" data-toggle="list" href="<%= categoria.link %>" role="tab" aria-controls="<%= categoria.nome %>"><%= categoria.nome %></a>
               <% }); %> 
             </div>
           </div>
-          <div class="col-10">
+          <div class="col-10 mx-auto">
             <p class="lead text-muted">
               <%= pensiero %>
             </p>
