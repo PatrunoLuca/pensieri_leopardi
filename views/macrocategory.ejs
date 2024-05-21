@@ -28,9 +28,10 @@
     <!-- Page Content-->
     <div class="container main mx-auto my-2">
 
-      <section id="pensiero">
+      <section id="macrocategoria">
         <div class="position-relative overflow-hidden p-3 text-center">
-          <h1 class="display-2 heading">Pensiero <%= numero %>
+          <h1 class="display-2 heading">
+            <%= macrocategoria %>
           </h1>
           <div class="row">
             <div class="list-group list-group-horizontal-lg my-2" id="cat-tab" role="cat-list">
@@ -42,10 +43,26 @@
                 <% }); %>
             </div>
           </div>
-          <div class="row">
-            <p class="lead text-muted">
-              <%= pensiero %>
-            </p>
+          <div class="row d-flex justify-content-center pt-2 my-4">
+            <% pensieri.forEach(function(pensiero) { %>
+              <div class="col-12 col-md-6 col-lg-4 px-2 py-2 justify-content-center">
+                <div class="card flex-fill">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= pensiero.numeral %>
+                    </h5>
+                    <p class="card-text">
+                      <% if(pensiero.text.slice(0, 190) !==pensiero.text){ %>
+                        <%= pensiero.text.slice(0, 190).trim().replace(/(^,)|(,$)/g, "" ) %><strong>...</strong>
+                          <% } else { %>
+                            <%= pensiero.text.trim() %>
+                              <% } %>
+                    </p>
+                    <a href="/pensiero/<%= pensiero.id %>" class="btn btn-primary">Vai al pensiero</a>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
           </div>
         </div>
       </section>

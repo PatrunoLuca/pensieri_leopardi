@@ -2,7 +2,7 @@
 
 ## Tempo
 
-### Gioventú
+### Gioventù
 
 ### Vecchiaia
 
@@ -22,7 +22,7 @@
 
 ### Uomo e Donna
 
-## Miserie Umane
+## Vizi Umani
 
 ### Presunzione
 
@@ -42,7 +42,7 @@
 
 ### Credulità
 
-## Virtú
+## Virtù
 
 ### Onesta
 

@@ -1,5 +1,5 @@
 node_modules
 node_modules/*
-downloader
-downloader/*
+private
+private/*
 package-lock.json

@@ -12,66 +12,13 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <script src="/bootstrap/js/bootstrap.min.js"></script>
   <script type="module">
-    var links = {
-      "Tempo": "/macrocategoria/tempo",
-      "Gioventú": "/categoria/giovent%C3%BA",
-      "Vecchiaia": "/categoria/vecchiaia",
-      "Esperienza": "/categoria/esperienza",
-      "Anniversari": "/categoria/anniversari",
-      "Dualismi": "/macrocategoria/dualismi",
-      "Essere e Apparire": "/categoria/essere%20e%20apparire",
-      "Dire e Fare": "/categoria/dire%20e%20fare",
-      "Immaginazione e Realtà": "/categoria/immaginazione%20e%20realt%C3%A0",
-      "Uomo e Natura": "/categoria/uomo%20e%20natura",
-      "Uomo e Donna": "/categoria/uomo%20e%20donna",
-      "Miserie Umane": "/macrocategoria/miserie%20umane",
-      "Presunzione": "/categoria/presunzione",
-      "Malvagità": "/categoria/malvagit%C3%A0",
-      "Superbia": "/categoria/superbia",
-      "Prepotenza": "/categoria/prepotenza",
-      "Viltà": "/categoria/vilt%C3%A0",
-      "Disprezzo": "/categoria/disprezzo",
-      "Ipocrisia": "/categoria/ipocrisia",
-      "Intolleranza": "/categoria/intolleranza",
-      "Credulità": "/categoria/credulit%C3%A0",
-      "Virtú": "/macrocategoria/virt%C3%BA",
-      "Onesta": "/categoria/onesta",
-      "Bontà": "/categoria/bont%C3%A0",
-      "Sincerità": "/categoria/sincerit%C3%A0",
-      "Modestia": "/categoria/modestia",
-      "Sentimenti": "/macrocategoria/sentimenti",
-      "Allegria": "/categoria/allegria",
-      "Malinconia": "/categoria/malinconia",
-      "Noia": "/categoria/noia",
-      "Popolarità": "/categoria/popolarit%C3%A0",
-      "Ingiurie": "/categoria/ingiurie",
-      "Parlare Troppo": "/categoria/parlare%20troppo",
-      "Inganno": "/categoria/inganno",
-      "Denaro": "/categoria/denaro",
-      "Segreti": "/categoria/segreti",
-      "Epidemie": "/categoria/epidemie",
-      "Destino": "/categoria/destino",
-      "Specchio": "/categoria/specchio",
-      "Conoscenza": "/macrocategoria/conoscenza",
-      "Letteratura": "/categoria/letteratura",
-      "Guicciardini": "/categoria/guicciardini",
-      "Educazione": "/categoria/educazione",
-      "Illusioni": "/categoria/illusioni"
-    }
-    
+
     import mermaid from '/mermaid/mermaid.esm.mjs';
-    mermaid.initialize({
-      startOnLoad: true, 
-      securityLevel: 'loose', 
-      er: { useMaxWidth: true },
-      mermaid: {callback: function(objId) {
-        var svg = document.getElementById(objId);
-        var nodeName;
-        for(nodeName in links) {
-          var gErd = svg.getElementById(nodeName);
-          gErd.href = links[this.id];
-        }
-      }}
+    mermaid.run({
+      querySelector: '.mermaid',
+      postRenderCallback: (id) => {
+        document.getElementById("loading").remove();
+      }
     });
   </script>
 
@@ -79,10 +26,9 @@
 
   <!-- Font Awesome -->
   <script src="/scripts/fontawesome.js"></script>
-    
+
 
   <!-- Custom Files-->
-  <link href="/styles/home.css" rel="stylesheet">
   <link href="/styles/all.css" rel="stylesheet">
   <script src="/scripts/all.js" defer></script>
   <script src="/scripts/home.js" defer></script>
@@ -93,44 +39,49 @@
 
   <%- include("header"); %>
 
-  <!-- Page Content-->
-  <div class="main container mx-auto my-2">
+    <!-- Page Content-->
+    <div class="main container mx-auto my-2">
 
-    <section id="intro">
-      <div class="position-relative overflow-hidden text-center">
-        <img src="/assets/logo.png" width="300" height="300" class="d-inline-block align-top" alt="">
-      </div>
+      <section id="intro">
+        <div class="position-relative overflow-hidden text-center">
+          <img src="/assets/logo.png" width="300" height="300" class="d-inline-block align-top" alt="">
+        </div>
 
-      <div class="position-relative overflow-hidden p-3 text-center">
-        <h1 class="display-2 heading">Coding e Italiano</h1>
-        <p class="lead text-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui. 
-          Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis, 
-          lorem metus feugiat turpis, id molestie arcu.
-        </p>
-      </div>
-    </section>
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-2 heading">Coding e Italiano</h1>
+          <p class="lead text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
+            Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
+            lorem metus feugiat turpis, id molestie arcu.
+          </p>
+        </div>
+      </section>
 
-    <section id="pensieri">
+      <section id="pensieri">
 
-      <div class="position-relative overflow-hidden p-3 text-center">
-        <h1 class="display-2 heading">Introduzione all'opera</h1>
-        <p class="lead text-muted">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
-          Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
-          lorem metus feugiat turpis, id molestie arcu.
-        </p>
-      </div>
-      
-      <pre class="mermaid text-center">
-        <%- include("leopardi.mmd") %>
-      </pre>
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-2 heading">Introduzione all'opera</h1>
+          <p class="lead text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
+            Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
+            lorem metus feugiat turpis, id molestie arcu.
+          </p>
+        </div>
 
-      <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script> <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">< %- include("mindmap.md") %></div> -->
+        <div class="d-flex align-items-center" id="loading">
+          <strong>Caricamento mindmap...</strong>
+          <div class="spinner-grow ms-auto" role="status" aria-hidden="true"></div>
+        </div>
+
+        <div class="mermaid text-center" id="mmd">
+          <%- include("leopardi.mmd") %>
+        </div>
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script> <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">< %- include("mindmap.md") %></div> -->
 
 
-    </section>
-  </div>
+      </section>
+    </div>
 
-  <%- include("footer"); %>
+    <%- include("footer"); %>
 </body>

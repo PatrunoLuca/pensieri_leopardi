@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pensieri</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+
+  <!-- Import local libraries -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="/scripts/fontawesome.js"></script>
+
+
+  <!-- Custom Files-->
+  <link href="/styles/all.css" rel="stylesheet">
+  <script src="/scripts/all.js" defer></script>
+</head>
+
+<body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
+
+  <%- include("header"); %>
+
+    <!-- Page Content-->
+    <div class="container main mx-auto my-2">
+
+      <section id="categoria">
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-2 heading">
+            <%= categoria %>
+          </h1>
+          <div class="row d-flex justify-content-center pt-2 my-4">
+            <% pensieri.forEach(function(pensiero) { %>
+              <div class="col-12 col-md-6 col-lg-4 px-2 py-2 justify-content-center">
+                <div class="card .h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= pensiero.numeral %>
+                    </h5>
+                    <p class="card-text">
+                      <% if(pensiero.text.slice(0, 190).trim() !==pensiero.text){ %>
+                        <%= pensiero.text.slice(0, 190).trim().replace(/(^,)|(,$)/g, "" ) %><strong>...</strong>
+                          <% } else { %>
+                            <%= pensiero.text.trim() %>
+                              <% } %>
+                    </p>
+                    <a href="/pensiero/<%= pensiero.id %>" class="btn btn-primary">Vai al pensiero</a>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <%- include("footer"); %>
+</body>

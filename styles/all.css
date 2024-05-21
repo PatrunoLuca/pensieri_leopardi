@@ -1,7 +1,11 @@
 main {
-    min-height: 800;
+	min-height: 800;
 }
 
 ul {
-    list-style-type: none
-};
+	list-style-type: none;
+}
+
+.text-justify {
+	text-align: justify !important;
+}
