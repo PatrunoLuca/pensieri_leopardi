@@ -64,7 +64,6 @@ app.get("/categoria/:ctg", (req, res) => {
 	res.render("category.ejs", {
 		categoria: category,
 		pensieri: Object.values(pensieri).filter((x) => {
-			console.log(x.id, x.categories);
 			if (x.categories.includes(category)) {
 				return true;
 			} else {
@@ -87,6 +86,63 @@ app.get("/macrocategoria/:mctg", (req, res) => {
 				return false;
 			}
 		}),
+	});
+});
+
+app.get("/search/:query", (req, res) => {
+	const query = req.params.query
+		.replace(/[^a-zA-Z]+/g, "")
+		.trim()
+		.toLowerCase();
+	console.log(query);
+
+	res.render("search.ejs", {
+		query: query,
+		pensieri: Object.values(pensieri)
+			.filter((x) => {
+				console.log(x.text.toLowerCase());
+				if (x.text.toLowerCase().includes(query)) {
+					return true;
+				} else {
+					return false;
+				}
+			})
+			.map((x) => {
+				let dot_before;
+				let dot_after;
+
+				console.log(x);
+
+				var regex = new RegExp("\\b" + query + "\\b");
+				const q_position = x.text.toLowerCase().search(regex);
+
+				let start_pos = q_position - Math.floor((190 - query.length) / 2);
+
+				if (start_pos < 1) {
+					start_pos = 0;
+				}
+
+				let end_pos = start_pos + 190;
+
+				if (end_pos > x.text.length) {
+					end_pos = x.text.length;
+					start_pos = end_pos - 180;
+					dot_after = "";
+				} else {
+					dot_after = "...";
+				}
+
+				if (start_pos < 1) {
+					start_pos = 0;
+					dot_before = "";
+				} else {
+					dot_before = "...";
+				}
+
+				const newX = x;
+				newX.text = dot_before + x.text.slice(start_pos, end_pos).trim() + dot_after;
+				return x;
+			}),
 	});
 });
 

@@ -15,13 +15,14 @@
           <a class="nav-link" href="/">Home</a>
         </li>
       </ul>
-      <form class="d-flex me-2 row">
+      <div class="d-flex me-2 row">
         <button type="button" class="btn btn-primary mx-3 col-2" id="random-thought"><i
             class="fas fa-dice"></i></button>
-        <input class="form-control col " type="search" placeholder="Search" aria-label="Search">
-        <button type="button" class="btn btn-primary col-2 mx-2" data-mdb-ripple-init><i
+        <input class="form-control col" id="querySearch" placeholder="Search" aria-label="Search"
+          onkeydown="if (event.key === 'Enter') { search(); }">
+        <button type="button" class="btn btn-primary col-2 mx-2" onclick="search()"><i
             class="fas fa-search"></i></button>
-      </form>
+      </div>
     </div>
   </nav>
 </header>

@@ -28,35 +28,25 @@
     <!-- Page Content-->
     <div class="container main mx-auto my-2">
 
-      <section id="macrocategoria">
+      <section id="categoria">
         <div class="position-relative overflow-hidden p-3 text-center">
-          <h1 class="display-2 heading">
-            <%= macrocategoria %>
+          <h1 class="display-3 heading">
+            Risultati della ricerca per <em>
+              <%= query %>
+            </em>:
           </h1>
-          <div class="row">
-            <div class="list-group list-group-horizontal-lg my-2" id="cat-tab" role="cat-list">
-              <% categorie.forEach(function(categoria) { %>
-                <a class="list-group-item list-group-item-action" data-toggle="list" href="<%= categoria.link %>"
-                  role="tab" aria-controls="<%= categoria.nome %>">
-                  <%= categoria.nome %>
-                </a>
-                <% }); %>
-            </div>
-          </div>
           <div class="row d-flex justify-content-center pt-2 my-4">
             <% pensieri.forEach(function(pensiero) { %>
-              <div class="col-12 col-md-6 col-lg-4 px-2 py-2 justify-content-center">
-                <div class="card flex-fill h-100">
+              <div class="col-12 col-md-6 col-lg-4 px-2 py-2 justify-content-center" id="carte">
+                <div class="card h-100">
                   <div class="card-body">
                     <h5 class="card-title">
                       <%= pensiero.numeral %>
                     </h5>
                     <p class="card-text">
-                      <% if(pensiero.text.slice(0, 190) !==pensiero.text){ %>
-                        <%= pensiero.text.slice(0, 190).trim().replace(/(^,)|(,$)/g, "" ) %><strong>...</strong>
-                          <% } else { %>
-                            <%= pensiero.text.trim() %>
-                              <% } %>
+                      <%- pensiero.text.replace(query, `<strong>${query}</strong>`).replace("....", "..."
+                        ).replace("...",
+                        '<strong>...</strong>') %>
                     </p>
                     <a href="/pensiero/<%= pensiero.id %>" class="btn btn-primary">Vai al pensiero</a>
                   </div>
@@ -64,6 +54,12 @@
               </div>
               <% }); %>
           </div>
+
+          <%if (pensieri.length==0) { %>
+            <div class="text display-4">
+              Nessun risultato trovato
+            </div>
+            <% } %>
         </div>
       </section>
     </div>
