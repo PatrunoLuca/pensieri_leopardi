@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const flexsearch = require("flexsearch");
 
 const app = express();
 
@@ -94,13 +93,11 @@ app.get("/search/:query", (req, res) => {
 		.replace(/[^a-zA-Z]+/g, "")
 		.trim()
 		.toLowerCase();
-	console.log(query);
 
 	res.render("search.ejs", {
 		query: query,
 		pensieri: Object.values(pensieri)
 			.filter((x) => {
-				console.log(x.text.toLowerCase());
 				if (x.text.toLowerCase().includes(query)) {
 					return true;
 				} else {
