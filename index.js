@@ -135,10 +135,10 @@ app.get("/search/:query", (req, res) => {
 				} else {
 					dot_before = "...";
 				}
-
-				const newX = x;
+				
+				const newX = { ...x };
 				newX.text = dot_before + x.text.slice(start_pos, end_pos).trim() + dot_after;
-				return x;
+				return newX;
 			}),
 	});
 });
