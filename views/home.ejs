@@ -35,7 +35,7 @@
 
 </head>
 
-<body data-bs-theme="dark">
+<body data-bs-theme="<%- include('theme.txt'); %>" class="d-flex flex-column min-vh-100">
 
   <%- include("header"); %>
 
@@ -47,24 +47,84 @@
           <img src="/assets/logo.png" width="300" height="300" class="d-inline-block align-top" alt="">
         </div>
 
+
+        <h1 class="display-1 heading mb-3 font-weight-bold text-center mb-5">G. Leopardi, Pensieri </h1>
+
         <div class="position-relative overflow-hidden p-3 text-center">
-          <h1 class="display-2 heading">Coding e Italiano</h1>
-          <p class="lead text-muted">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
-            Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
-            lorem metus feugiat turpis, id molestie arcu.
+
+          <h1 class="display-4 heading mb-3 text-justify"> Analisi computazionale di un testo letterario in
+            classe
+          </h1>
+          <p class="lead text-muted theme-text  font-text text-justify">
+            Il percorso didattico intende condurre gli allievi attraverso una lettura critica dei Pensieri di Giacomo
+            Leopardi, utilizzando sia il metodo tradizionale di analisi del testo letterario, sia gli strumenti
+            dell’analisi computazionale, offrendo nel contempo una breve panoramica ed esempi applicativi delle
+            tecniche
+            di analisi dei testi con specifici software.
+            La conoscenza e l’utilizzo delle tecniche di analisi computazionale dei testi verrà utilizzata soprattutto
+            come spunto e stimolo per accostarsi alla lettura di uno dei classici della letteratura italiana. La
+            trattazione degli aspetti tecnologici sarà infatti condotta con taglio strettamente applicativo, per
+            sperimentare strumentalmente metodi e tools dell’analisi digitale e per favorire la curiosità verso una
+            possibile applicazione e sviluppo delle competenze acquisite nel campo del linguaggio di programmazione.
+            Si tratta di un percorso sperimentale che intende essenzialmente mettere in connessione due ambiti
+            disciplinari normalmente incompatibili (almeno in ambito scolastico), Storia della Letteratura Italiana e
+            Coding, per verificare quali prospettive sia possibile ipotizzare sia sul piano degli strumenti e delle
+            metodologie, sia su quello dei contenuti.
+            Il confronto diretto con gli strumenti e i risultati dell’analisi computazionale ha la finalità di portare
+            gli allievi a riflettere sulle proprie capacità di comprensione e interpretazione del testo, conducendoli
+            verso una nuova consapevolezza critica, anche e soprattutto rispetto alle effettive potenzialità
+            ermeneutiche dei mezzi tecnologici.
           </p>
         </div>
-      </section>
-
-      <section id="pensieri">
 
         <div class="position-relative overflow-hidden p-3 text-center">
-          <h1 class="display-2 heading">Introduzione all'opera</h1>
-          <p class="lead text-muted">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu viverra dui.
-            Maecenas sit amet metus velit. Maecenas malesuada, ligula vel viverra sagittis,
-            lorem metus feugiat turpis, id molestie arcu.
+          <h1 class="display-4 heading mb-3 text-justify">Perché i Pensieri?
+          </h1>
+          <p class="lead text-muted theme-text  font-text text-justify">
+            I Pensieri si presentano come una raccolta non ordinata di aforismi di varia estensione, ma
+            complessivamente
+            brevi, in cui Leopardi manifesta una sintesi delle sue convinzioni sull'uomo e sulla società.
+            Non si sa se l'ordine, la disposizione e l'estensione finale seguano effettivamente le volontà
+            dell’autore,
+            ma l’opera può essere considerata come l’esempio del pensiero non standardizzabile, non sistematico,
+            legato
+            alle occasioni, alla stratificazione delle esperienze e degli studi di Leopardi. Un’opera che non prevede
+            solo una lettura di tipo sequenziale, ma è potenzialmente aperta a diversi percorsi di lettura.
+            Ed è proprio questo l’aspetto che la rende interessante per il nostro scopo: scomporre i contenuti del
+            testo
+            per renderli fruibili seguendo più vie e permettere di attraversare il testo per tematiche. Una lettura
+            multifocale che avvicina questo classico della letteratura italiana alle forme e ai modi della lettura
+            digitale, facendolo diventare quasi un ipertesto.
+            Ragionando poi sulla forma e sulle caratteristiche dell’aforisma (o massima, in questo caso), abbiamo
+            pensato inoltre che potesse essere interessante dare la possibilità di aggregare, intorno ai pensieri di
+            Leopardi, gli aforismi e le riflessioni sugli stessi temi da parte di altri autori, anche appartenenti ad
+            epoche e culture diverse. Di qui l’idea di formalizzare i risultati della nostra analisi in un sito web
+            interattivo.
+            Questo permetterà di completare la trasformazione del testo originale classico in un testo digitale,
+            andando
+            oltre la semplice trasposizione elettronica o codifica informatica, ma proponendo per esso un nuovo
+            modello
+            di lettura e possibilità di fruizione e interazione più attive.
+          </p>
+        </div>
+
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-4 heading mb-3 text-justify">Coding
+          </h1>
+          <p class="lead text-muted theme-text  font-text text-justify">
+            Gli aspetti di Coding che caratterizzano il percorso proposto non sono esclusivamente legati alla
+            programmazione ed alla codifica di software. Per Coding si può intendere un approccio allo studio dei
+            Pensieri di tipo scientifico-metodologico, che metta al centro la modalità con cui gli studenti
+            affronteranno l’analisi del testo e l’estrapolazione dei Topic. Lo studio e la successiva comparazione dei
+            risultati ottenuti dall’analisi computazione, permetterà riflessioni altrimenti non possibili. Tuttavia la
+            conoscenza di tecniche di programmazione offrirà la possibilità di far emergere le imprecisioni dei
+            software
+            utilizzati, le contraddizioni e le incoerenze, così da rendere la comparazione più accurata e dedurre,
+            quindi, le tecniche computazionali utili ad un miglioramento del risultato finale. Le competenze relative
+            alla programmazione verranno impiegate nella strutturazione del prodotto finale, che permetterà una
+            visualizzazione esplicita dei legami tra i topic ed i pensieri. Si implementerà la lettura visiva e non
+            solo
+            testuale dei risultati.
           </p>
         </div>
 
@@ -76,10 +136,6 @@
         <div class="mermaid text-center" id="mmd">
           <%- include("leopardi.mmd") %>
         </div>
-
-        <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.9-alpha.6/dist/browser/index.js"></script> <div class="markmap w-100 position-relative overflow-hidden p-3 text-center">< %- include("mindmap.md") %></div> -->
-
-
       </section>
     </div>
 

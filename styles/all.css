@@ -9,3 +9,27 @@ ul {
 .text-justify {
 	text-align: justify !important;
 }
+
+body,
+#querySearch,
+.card,
+.list-group {
+	background-color: #f0f0f0 !important;
+	--bs-list-group-bg: #f0f0f0;
+}
+
+.theme-text {
+	color: black;
+}
+
+.theme-text-contrast {
+	color: white;
+}
+
+.theme-border {
+	border-color: #c6c6c6;
+}
+
+.font-text {
+	font-family: Georgia, Times New Roman, Times, serif;
+}

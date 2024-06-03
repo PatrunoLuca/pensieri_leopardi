@@ -21,7 +21,7 @@
   <script src="/scripts/all.js" defer></script>
 </head>
 
-<body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
+<body data-bs-theme="<%- include('theme.txt'); %>" class="d-flex flex-column min-vh-100">
 
   <%- include("header"); %>
 
@@ -36,12 +36,12 @@
           <div class="row d-flex justify-content-center pt-2 my-4">
             <% pensieri.forEach(function(pensiero) { %>
               <div class="col-12 col-md-6 col-lg-4 px-2 py-2 justify-content-center">
-                <div class="card h-100">
+                <div class="card h-100 theme-border">
                   <div class="card-body">
                     <h5 class="card-title">
                       <%= pensiero.numeral %>
                     </h5>
-                    <p class="card-text">
+                    <p class="card-text theme-text">
                       <% if(pensiero.text.slice(0, 190).trim() !==pensiero.text){ %>
                         <%= pensiero.text.slice(0, 190).trim().replace(/(^,)|(,$)/g, "" ) %><strong>...</strong>
                           <% } else { %>

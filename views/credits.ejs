@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pensieri</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+
+  <!-- Import local libraries -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="/scripts/fontawesome.js"></script>
+
+
+  <!-- Custom Files-->
+  <link href="/styles/all.css" rel="stylesheet">
+  <script src="/scripts/all.js" defer></script>
+  <script src="/scripts/home.js" defer></script>
+
+  <!-- Mermaid JS-->
+  <script type="module">
+
+    import mermaid from '/mermaid/mermaid.esm.mjs';
+    mermaid.run({
+      querySelector: '.mermaid',
+      postRenderCallback: (id) => {
+        document.getElementById("loading").remove();
+      }
+    });
+  </script>
+
+</head>
+
+<body data-bs-theme="<%- include('theme.txt'); %>" class="d-flex flex-column min-vh-100">
+
+  <%- include("header"); %>
+
+    <!-- Page Content-->
+    <div class="main container mx-auto my-2">
+
+      <section id="credits">
+
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-1 heading mb-3 font-weight-bold text-center mb-3">G. Leopardi, Pensieri </h1>
+
+          <h1 class="display-4 heading mb-3 text-justify">I docenti</h1>
+          <p class="lead text-muted theme-text  font-text text-justify">
+            Il percorso didattico è stato coordinato dalla professoressa Soravia, docente di italiano della classe, che
+            si è occupata di dirigere il progetto e aiutare gli studenti nella categorizzazione dei pensieri. Per quanto
+            riguarda gli aspetti legati alla facoltà coding, il docente che si è occupato di fornire assistenza è stato
+            il professor Mazzone
+          </p>
+        </div>
+
+        <div class="position-relative overflow-hidden p-3 text-center">
+          <h1 class="display-4 heading mb-3 text-justify">La classe
+          </h1>
+          <p class="lead text-muted theme-text  font-text text-justify">
+            Arcione Vittoria, Aversa Mattia, Barile Luigi, Biasi Luca, Bocchetti
+            Francesco, Ferrigno Roberto, Fulgione Giuseppe, Mariano Raffaele, Patruno Luca e Ripoli Luca. Sono questi i
+            nomi degli studenti della 5E che si sono occupati della lettura e catalogazione dei pensieri per categoria.
+            Il sito web, poi, è stata una creazione postuma dell'alunno Patruno Luca con il supporto dei docenti.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <%- include("footer"); %>
+</body>

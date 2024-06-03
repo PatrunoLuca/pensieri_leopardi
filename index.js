@@ -42,6 +42,10 @@ app.get("/", (req, res) => {
 	res.render("home.ejs", {});
 });
 
+app.get("/credits", (req, res) => {
+	res.render("credits.ejs", {});
+});
+
 app.get("/categoria", (req, res) => {
 	res.render("home.ejs", {});
 });
@@ -94,23 +98,18 @@ app.get("/search/:query", (req, res) => {
 		.trim()
 		.toLowerCase();
 
+	var regex = new RegExp("\\b" + query + "\\b");
+
 	res.render("search.ejs", {
 		query: query,
 		pensieri: Object.values(pensieri)
 			.filter((x) => {
-				if (x.text.toLowerCase().includes(query)) {
-					return true;
-				} else {
-					return false;
-				}
+				return regex.test(x.text.toLowerCase());
 			})
 			.map((x) => {
 				let dot_before;
 				let dot_after;
 
-				console.log(x);
-
-				var regex = new RegExp("\\b" + query + "\\b");
 				const q_position = x.text.toLowerCase().search(regex);
 
 				let start_pos = q_position - Math.floor((190 - query.length) / 2);
@@ -135,7 +134,7 @@ app.get("/search/:query", (req, res) => {
 				} else {
 					dot_before = "...";
 				}
-				
+
 				const newX = { ...x };
 				newX.text = dot_before + x.text.slice(start_pos, end_pos).trim() + dot_after;
 				return newX;

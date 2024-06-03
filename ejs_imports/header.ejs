@@ -10,18 +10,16 @@
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
       aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-4">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-      </ul>
-      <div class="d-flex me-2 row">
-        <button type="button" class="btn btn-primary mx-3 col-2" id="random-thought"><i
-            class="fas fa-dice"></i></button>
-        <input class="form-control col" id="querySearch" placeholder="Search" aria-label="Search"
+      <div class="ms-auto mb-2 mb-lg-0 px-4 row">
+        <a class="nav-link col-4 mx-2 theme-text-contrast" href="/">Home</a>
+        <a class="nav-link col-4 mx-2 theme-text-contrast" href="/credits">Credits</a>
+      </div>
+      <div class="d-flex mx-2 row">
+        <button type="button" class="btn btn-primary  col-2" id="random-thought"><i class="fas fa-dice">
+          </i></button>
+        <input class="form-control col mx-1" id="querySearch" placeholder="Search" aria-label="Search"
           onkeydown="if (event.key === 'Enter') { search(); }">
-        <button type="button" class="btn btn-primary col-2 mx-2" onclick="search()"><i
-            class="fas fa-search"></i></button>
+        <button type="button" class="btn btn-primary col-2" onclick="search()"><i class="fas fa-search"></i></button>
       </div>
     </div>
   </nav>

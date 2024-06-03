@@ -21,7 +21,7 @@
   <script src="/scripts/all.js" defer></script>
 </head>
 
-<body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
+<body data-bs-theme="<%- include('theme.txt'); %>" class="d-flex flex-column min-vh-100">
 
   <%- include("header"); %>
 
@@ -35,15 +35,15 @@
           <div class="row">
             <div class="list-group list-group-horizontal-lg my-2" id="cat-tab" role="cat-list">
               <% categorie.forEach(function(categoria) { %>
-                <a class="list-group-item list-group-item-action" data-toggle="list" href="<%= categoria.link %>"
-                  role="tab" aria-controls="<%= categoria.nome %>">
+                <a class="list-group-item list-group-item-action theme-border" data-toggle="list"
+                  href="<%= categoria.link %>" role="tab" aria-controls="<%= categoria.nome %>">
                   <%= categoria.nome %>
                 </a>
                 <% }); %>
             </div>
           </div>
           <div class="row mt-4 mb-2">
-            <p class="lead text text-justify font-monospace">
+            <p class="lead text-muted theme-text font-text text-justify">
               <%= pensiero %>
             </p>
           </div>

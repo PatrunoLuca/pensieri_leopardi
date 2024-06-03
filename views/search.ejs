@@ -21,7 +21,7 @@
   <script src="/scripts/all.js" defer></script>
 </head>
 
-<body data-bs-theme="dark" class="d-flex flex-column min-vh-100">
+<body data-bs-theme="<%- include('theme.txt'); %>" class="d-flex flex-column min-vh-100">
 
   <%- include("header"); %>
 
@@ -43,7 +43,7 @@
                     <h5 class="card-title">
                       <%= pensiero.numeral %>
                     </h5>
-                    <p class="card-text">
+                    <p class="card-text theme-text">
                       <%- pensiero.text.replace(query, `<strong>${query}</strong>`).replace("....", "..."
                         ).replace("...",
                         '<strong>...</strong>') %>
